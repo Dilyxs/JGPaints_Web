@@ -1,0 +1,5 @@
+jgpaints-env/
+__pycache__/
+*.pyc
+.env
+static/images/
