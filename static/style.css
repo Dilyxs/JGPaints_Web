@@ -1,1 +1,152 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root {
+  --blue: #1E3A5F;
+  --orange: #E8720C;
+  --light: #F8F9FA;
+  --white: #FFFFFF;
+}
+
+body { font-family: 'Arial', sans-serif; color: #222; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; width: 100%;
+  background: var(--blue); padding: 16px 24px;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { color: white; font-size: 1.3rem; font-weight: bold; }
+.nav-cta {
+  background: var(--orange); color: white;
+  padding: 10px 20px; border-radius: 6px;
+  text-decoration: none; font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh; background: var(--blue);
+  display: flex; align-items: center;
+  justify-content: center; text-align: center;
+  padding: 100px 24px 60px;
+}
+.hero-content h1 {
+  font-size: 2.8rem; color: white;
+  line-height: 1.2; margin-bottom: 16px;
+}
+.hero-content p { color: #AACCEE; font-size: 1.1rem; margin-bottom: 32px; }
+.btn-primary {
+  background: var(--orange); color: white;
+  padding: 16px 32px; border-radius: 8px;
+  text-decoration: none; font-size: 1.1rem;
+  font-weight: bold; margin-right: 12px;
+  display: inline-block; margin-bottom: 12px;
+}
+.btn-secondary {
+  background: transparent; color: white;
+  padding: 16px 32px; border-radius: 8px;
+  text-decoration: none; font-size: 1.1rem;
+  border: 2px solid white; display: inline-block;
+}
+
+/* SECTIONS */
+section { padding: 80px 24px; }
+section h2 {
+  text-align: center; font-size: 2rem;
+  color: var(--blue); margin-bottom: 12px;
+}
+.section-sub {
+  text-align: center; color: #666;
+  margin-bottom: 40px;
+}
+
+/* SERVICES */
+.services { background: var(--light); }
+.services-grid {
+  max-width: 1100px; margin: 40px auto 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.service-card {
+  background: white; padding: 32px 24px;
+  border-radius: 12px; text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.service-card span { font-size: 2.5rem; }
+.service-card h3 { color: var(--blue); margin: 12px 0 8px; }
+.service-card p { color: #666; font-size: 0.95rem; line-height: 1.5; }
+
+/* GALLERY */
+.gallery-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.gallery-item { position: relative; border-radius: 12px; overflow: hidden; }
+.gallery-item img { width: 100%; height: 280px; object-fit: cover; }
+.tag {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--blue); color: white;
+  padding: 4px 12px; border-radius: 20px; font-size: 0.85rem;
+}
+.tag.after { background: var(--orange); }
+
+/* WHY */
+.why { background: var(--blue); }
+.why h2 { color: white; }
+.why-inner { max-width: 800px; margin: 0 auto; }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-top: 40px;
+}
+.why-item {
+  color: white; font-size: 1rem;
+  padding: 16px; background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+}
+
+/* QUOTE FORM */
+.quote { background: var(--light); }
+form {
+  max-width: 560px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 16px;
+}
+form input, form textarea {
+  padding: 14px 16px; border: 2px solid #DDD;
+  border-radius: 8px; font-size: 1rem;
+  font-family: Arial;
+}
+form input:focus, form textarea:focus {
+  outline: none; border-color: var(--blue);
+}
+form button {
+  background: var(--orange); color: white;
+  padding: 16px; border: none; border-radius: 8px;
+  font-size: 1.1rem; font-weight: bold; cursor: pointer;
+}
+form button:hover { background: #d4640a; }
+#success {
+  text-align: center; color: green;
+  font-size: 1.1rem; margin-top: 16px;
+}
+
+/* FOOTER */
+footer { background: #111; padding: 40px 24px; }
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px;
+}
+.footer-brand { color: white; font-size: 1.2rem; font-weight: bold; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: #AACCEE; text-decoration: none; }
+.footer-copy { color: #666; font-size: 0.85rem; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero-content h1 { font-size: 1.8rem; }
+  .why-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+}
