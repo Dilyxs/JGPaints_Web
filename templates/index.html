@@ -24,7 +24,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Montreal's Detail-Obsessed<br>Painting Company</h1>
+      <h1>Montreal's Detail<br>Painting Company</h1>
       <p>Interior & Exterior · Résidentiel · Free Quotes · All Boroughs</p>
       <a href="#quote" class="btn-primary">Get a Free Quote</a>
       <a href="#gallery" class="btn-secondary">See Our Work</a>
@@ -77,6 +77,12 @@
         <img src="/static/images/before5.jpeg" alt="Before painting">
     </a><a href="/static/images/before6.jpeg" data-lightbox="job6" data-title="Before — Job 6">
         <img src="/static/images/before6.jpeg" alt="Before painting">
+        </a><a href="/static/images/before7.jpeg" data-lightbox="job7" data-title="Before — Job 7">
+        <img src="/static/images/before7.jpeg" alt="Before painting">
+        </a><a href="/static/images/before8.jpeg" data-lightbox="job8" data-title="Before — Job 8">
+        <img src="/static/images/before8.jpeg" alt="Before painting">
+    </a>
+    
     </a>
     <span class="tag">Before</span>
 </div>
@@ -95,8 +101,13 @@
         <img src="/static/images/after5.jpeg" alt="After painting">
     </a><a href="/static/images/after6.jpeg" data-lightbox="job6" data-title="After — Job 6">
         <img src="/static/images/after6.jpeg" alt="After painting">
-    
+        </a><a href="/static/images/after7.jpeg" data-lightbox="job7" data-title="After — Job 6">
+        <img src="/static/images/after7.jpeg" alt="After painting">
+    </a><a href="/static/images/after8.jpeg" data-lightbox="job8" data-title="After — Job 6">
+        <img src="/static/images/after8.jpeg" alt="After painting">
     </a>
+    
+  </a>
     <span class="tag after">After</span>
 </div>
     </div>
@@ -119,21 +130,34 @@
 <!-- Elfsight Google Reviews | Untitled Google Reviews -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-263e3154-fc32-45f2-ad5e-c81cbe269b3d" data-elfsight-app-lazy></div>
-  <!-- QUOTE FORM -->
-  <section class="quote" id="quote">
-    <h2>Get Your Free Quote</h2>
-    <p class="section-sub">We'll get back to you within 24 hours</p>
-    <form id="quoteForm">
-      <input type="text" name="name" placeholder="Your name / Votre nom" required>
-      <input type="tel" name="phone" placeholder="Phone number / Téléphone" required>
-      <input type="text" name="area" placeholder="Borough / Quartier (ex: Plateau, NDG...)">
-      <textarea name="message" placeholder="Tell us about your project / Décrivez votre projet" rows="4"></textarea>
-      <button type="submit">Send Request · Envoyer</button>
-    </form>
-    <div id="success" style="display:none">
-      ✅ Message received! We'll call you within 24hrs.
+
+ 
+  <!-- Big photo + phone number -->
+  <div class="quote-hero">
+    <img src="{{ url_for('static', filename='images/team.jpg') }}" 
+         alt="JG Paints Team" class="quote-photo">
+    <div class="quote-contact">
+      <h2>Ready to Transform Your Home?</h2>
+      <p>Call or text us directly — we respond fast.</p>
+      <a href="tel:+14388649123" class="phone-btn">📞 438-864-9123</a>
     </div>
-  </section>
+  </div>
+
+  <!-- Form below -->
+  <h2>Or Send Us a Message</h2>
+  <p class="section-sub">We'll get back to you within 24 hours</p>
+  <form id="quoteForm">
+    <input type="text" name="name" placeholder="Your name / Votre nom" required>
+    <input type="tel" name="phone" placeholder="Phone number / Téléphone" required>
+    <input type="text" name="area" placeholder="Borough / Quartier (ex: Plateau, NDG...)">
+    <textarea name="message" placeholder="Tell us about your project / Décrivez votre projet" rows="4"></textarea>
+    <button type="submit">Send Request · Envoyer</button>
+  </form>
+  <div id="success" style="display:none">
+    ✅ Message received! We'll call you within 24hrs.
+  </div>
+
+</section>
 
   <!-- FOOTER -->
   <footer>

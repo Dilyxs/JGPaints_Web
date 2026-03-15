@@ -106,7 +106,51 @@ section h2 {
   padding: 16px; background: rgba(255,255,255,0.08);
   border-radius: 8px;
 }
+/* PHONE NUMBER SECTION */
+.quote-contact {
+  background: var(--blue);
+  padding: 40px 32px;
+  text-align: center;
+  border-radius: 16px;
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
 
+.quote-contact h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.quote-contact p {
+  color: #AACCEE;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.phone-btn {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 18px 48px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.phone-btn:hover {
+  background: #d4640a;
+  transform: scale(1.03);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .quote-contact { padding: 28px 20px; }
+  .quote-contact h2 { font-size: 1.4rem; }
+  .phone-btn { font-size: 1.2rem; padding: 14px 32px; }
+}
 /* QUOTE FORM */
 .quote { background: var(--light); }
 form {
