@@ -4,3 +4,4 @@ __pycache__/
 .env
 static/images/
 credentials.json
+quote_requests.txt
