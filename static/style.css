@@ -27,11 +27,18 @@ nav {
 }
 
 /* HERO */
-.hero {
-  min-height: 100vh; background: var(--blue);
-  display: flex; align-items: center;
-  justify-content: center; text-align: center;
-  padding: 100px 24px 60px;
+.hero {/* Use your actual image filename here */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('/static/images/hero-bg.jpeg');
+    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 85vh; /* Gives it that big "Hero" look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 .hero-content h1 {
   font-size: 2.8rem; color: white;

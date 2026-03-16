@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JG Paints — Residential Painting Montreal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1ZZQ1V4BZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H1ZZQ1V4BZ');
+</script>
 </head>
 <body>
   
@@ -146,10 +155,11 @@
   <!-- Form below -->
   <h2>Or Send Us a Message</h2>
   <p class="section-sub">We'll get back to you within 24 hours</p>
-  <form id="quoteForm">
+  <form id="quote">
     <input type="text" name="name" placeholder="Your name / Votre nom" required>
     <input type="tel" name="phone" placeholder="Phone number / Téléphone" required>
-    <input type="text" name="area" placeholder="Borough / Quartier (ex: Plateau, NDG...)">
+    <input type="email" name="email" placeholder="Email address / Adresse courriel">
+    <input type="text" name="area" placeholder="Address (ex: Plateau, NDG...)">
     <textarea name="message" placeholder="Tell us about your project / Décrivez votre projet" rows="4"></textarea>
     <button type="submit">Send Request · Envoyer</button>
   </form>
