@@ -1,4 +1,4 @@
-import email
+
 
 from flask import Flask, render_template, request, jsonify
 import gspread
@@ -24,7 +24,7 @@ sheet = gc.open_by_url(SHEET_URL).worksheet("websiteData")
 # ── TEXT FILE BACKUP ──────────────────────────
 BACKUP_FILE = os.path.join(os.path.dirname(__file__), 'quote_requests.txt')
 
-def save_to_file(name, phone, area, message, date):
+def save_to_file(name, phone, email, area, message, date): # Add email here
     with open(BACKUP_FILE, 'a', encoding='utf-8') as f:
         f.write("=" * 50 + "\n")
         f.write(f"Date:     {date}\n")
