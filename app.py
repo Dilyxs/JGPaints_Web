@@ -1,85 +1,158 @@
-
-
-from flask import Flask, render_template, request, jsonify
-import gspread
-from google.oauth2.service_account import Credentials
 from datetime import datetime
 import os
 
+from flask import Flask, jsonify, render_template, request
+import gspread
+from google.oauth2.service_account import Credentials
+
+
 app = Flask(__name__)
 
-# ── GOOGLE SHEETS SETUP ───────────────────────
 SCOPES = [
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/drive'
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
 ]
-
-creds = Credentials.from_service_account_file(
-    'credentials.json', scopes=SCOPES
-)
-gc = gspread.authorize(creds)
 SHEET_URL = "https://docs.google.com/spreadsheets/d/1pMLBCmT7gZwHJ7BkLuLSxtnKDK9RZzHI1i1FfY7xukg/edit?usp=sharing"
-sheet = gc.open_by_url(SHEET_URL).worksheet("websiteData")
+BACKUP_FILE = os.path.join(os.path.dirname(__file__), "quote_requests.txt")
 
-# ── TEXT FILE BACKUP ──────────────────────────
-BACKUP_FILE = os.path.join(os.path.dirname(__file__), 'quote_requests.txt')
 
-def save_to_file(name, phone, email, area, message, date): # Add email here
-    with open(BACKUP_FILE, 'a', encoding='utf-8') as f:
-        f.write("=" * 50 + "\n")
-        f.write(f"Date:     {date}\n")
-        f.write(f"Name:     {name}\n")
-        f.write(f"Phone:    {phone}\n")
-        f.write(f"Email:    {email}\n")
-        f.write(f"Borough:  {area}\n")
-        f.write(f"Message:  {message}\n")
-        f.write("=" * 50 + "\n\n")
+def connect_sheet():
+    try:
+        creds = Credentials.from_service_account_file("credentials.json", scopes=SCOPES)
+        client = gspread.authorize(creds)
+        return client.open_by_url(SHEET_URL).worksheet("websiteData")
+    except Exception as exc:
+        print(f"Sheet connection unavailable: {exc}")
+        return None
 
-@app.route('/')
+
+sheet = connect_sheet()
+
+
+def clean(value):
+    return (value or "").strip()
+
+
+def save_to_file(record):
+    with open(BACKUP_FILE, "a", encoding="utf-8") as file_obj:
+        file_obj.write("=" * 60 + "\n")
+        file_obj.write(f"Date:         {record['date']}\n")
+        file_obj.write(f"Locale:       {record['locale']}\n")
+        file_obj.write(f"Name:         {record['name']}\n")
+        file_obj.write(f"Phone:        {record['phone']}\n")
+        file_obj.write(f"Email:        {record['email']}\n")
+        file_obj.write(f"Area:         {record['area']}\n")
+        file_obj.write(f"Service Type: {record['service_type']}\n")
+        file_obj.write(f"Project Size: {record['project_size']}\n")
+        file_obj.write(f"Timeline:     {record['timeline']}\n")
+        file_obj.write(f"Budget:       {record['budget']}\n")
+        file_obj.write(f"Message:      {record['message']}\n")
+        file_obj.write("=" * 60 + "\n\n")
+
+
+@app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/submit-quote', methods=['POST'])
+
+@app.route("/fr")
+def home_fr():
+    return render_template("index_fr.html")
+
+
+@app.route("/submit-quote", methods=["POST"])
 def submit_quote():
-    name    = request.form.get('name', '')
-    phone   = request.form.get('phone', '')
-    email   = request.form.get('email', '')
-    area    = request.form.get('area', '')
-    message = request.form.get('message', '')
-    date    = datetime.now().strftime("%Y-%m-%d %H:%M")
+    company = clean(request.form.get("company"))
+    form_loaded_at = clean(request.form.get("form_loaded_at"))
 
-    # ── Save to text file first (always works)
+    if company:
+        return jsonify({"status": "ignored"}), 200
+
     try:
-        save_to_file(name, phone, email, area, message, date)
-        print(f"✅ Saved to file: {name} - {phone}")
-    except Exception as e:
-        print(f"❌ File save error: {e}")
+        loaded_ts = int(form_loaded_at)
+        if int(datetime.now().timestamp() * 1000) - loaded_ts < 3000:
+            return jsonify({"status": "ignored"}), 200
+    except ValueError:
+        return jsonify({"status": "invalid"}), 400
 
-    # ── Save to Google Sheets (bonus)
+    record = {
+        "date": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "locale": clean(request.form.get("locale", "en")),
+        "name": clean(request.form.get("name")),
+        "phone": clean(request.form.get("phone")),
+        "email": clean(request.form.get("email")),
+        "area": clean(request.form.get("area")),
+        "service_type": clean(request.form.get("service_type")),
+        "project_size": clean(request.form.get("project_size")),
+        "timeline": clean(request.form.get("timeline")),
+        "budget": clean(request.form.get("budget")),
+        "message": clean(request.form.get("message")),
+    }
+
+    required = ["name", "phone", "area", "service_type", "project_size", "timeline", "budget"]
+    if any(not record[field] for field in required):
+        return jsonify({"status": "invalid", "error": "missing required fields"}), 400
+
     try:
-        sheet.append_row([date, name, phone, email, area, message, 'New'])
-        print(f"✅ Added to sheet: {name} - {phone}")
-    except Exception as e:
-        print(f"❌ Sheet error: {e}")
+        save_to_file(record)
+        print(f"Saved backup quote: {record['name']} ({record['phone']})")
+    except Exception as exc:
+        print(f"File save error: {exc}")
 
-    return jsonify({'status': 'success'})
+    if sheet is not None:
+        try:
+            sheet.append_row(
+                [
+                    record["date"],
+                    record["locale"],
+                    record["name"],
+                    record["phone"],
+                    record["email"],
+                    record["area"],
+                    record["service_type"],
+                    record["project_size"],
+                    record["timeline"],
+                    record["budget"],
+                    record["message"],
+                    "New",
+                ]
+            )
+            print(f"Saved sheet quote: {record['name']} ({record['phone']})")
+        except Exception as exc:
+            print(f"Sheet save error: {exc}")
 
-if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5000)
-# Add these routes to app.py
-@app.route('/robots.txt')
+    return jsonify({"status": "success"}), 200
+
+
+@app.route("/robots.txt")
 def robots():
-    return """User-agent: *
-Allow: /
-Sitemap: https://jgpaints.ca/sitemap.xml""", 200, {'Content-Type': 'text/plain'}
+    return (
+        "User-agent: *\nAllow: /\nSitemap: https://jgpaints.ca/sitemap.xml",
+        200,
+        {"Content-Type": "text/plain"},
+    )
 
-@app.route('/sitemap.xml')
+
+@app.route("/sitemap.xml")
 def sitemap():
-    return """<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    return (
+        """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
   <url>
     <loc>https://jgpaints.ca/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-</urlset>""", 200, {'Content-Type': 'application/xml'}
+  <url>
+    <loc>https://jgpaints.ca/fr</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>""",
+        200,
+        {"Content-Type": "application/xml"},
+    )
+
+
+if __name__ == "__main__":
+    app.run(debug=False, host="0.0.0.0", port=5000)
