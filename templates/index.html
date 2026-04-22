@@ -1,197 +1,640 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JG Paints — Residential Painting Montreal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1ZZQ1V4BZ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-H1ZZQ1V4BZ');
-  </script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JG Paints — Student Painting Company in Montreal</title>
+    <meta
+      name="description"
+      content="JG Paints is a student-run residential painting company in Montreal. Interior, exterior, deck, and cabinet painting with fast quotes, warranty coverage, and bilingual service."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-H1ZZQ1V4BZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-H1ZZQ1V4BZ");
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "JG Paints ENR.",
+        "url": "https://jgpaints.ca/",
+        "image": "https://jgpaints.ca/static/images/logo.png",
+        "description": "Student-run residential painting company serving Montreal with interior, exterior, deck, and cabinet painting.",
+        "telephone": "+1-438-864-9123",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montreal",
+          "addressRegion": "QC",
+          "addressCountry": "CA"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Montreal" },
+          { "@type": "AdministrativeArea", "name": "Outremont" },
+          { "@type": "AdministrativeArea", "name": "Plateau-Mont-Royal" },
+          { "@type": "AdministrativeArea", "name": "Riviere-des-Prairies" },
+          { "@type": "AdministrativeArea", "name": "Saint-Leonard" }
+        ],
+        "openingHours": "Mo-Sa 08:00-20:00",
+        "sameAs": ["https://instagram.com/jgpaintsmtl"]
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="#top" class="logo" aria-label="JG Paints home">
+          <img src="/static/images/logo.png" alt="JG Paints logo" />
+        </a>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#faq">FAQ</a>
+          <a href="/fr" class="lang-link">FR</a>
+          <a href="#quote" class="nav-cta">Get Quote</a>
+        </div>
+      </div>
+    </nav>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-inner">
-      <div class="logo">
-        <img src="/static/images/logo.png" alt="JG Paints" height="45">
+    <header class="hero" id="top">
+      <div class="hero-content reveal">
+        <span class="hero-eyebrow"
+          >Student-Run Team in Montreal Since 2024</span
+        >
+        <h1>We Paint Homes to Pay Tuition, and We Treat Yours Like Our Own.</h1>
+        <div class="hero-rule"></div>
+        <p class="hero-lead">
+          Homeowners hire us on purpose: young energy, professional prep, and
+          clean finishes that last.
+        </p>
+        <div class="hero-buttons">
+          <a href="#quote" class="btn-primary">Get a Fast Quote</a>
+          <a href="#story" class="btn-secondary">Meet the Team</a>
+        </div>
       </div>
-      <a href="#quote" class="nav-cta">Free Quote</a>
-    </div>
-  </nav>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <span class="hero-eyebrow">Montreal · Since 2024</span>
-      <h1>Montreal's <em>Detail</em><br>Painting Company</h1>
-      <div class="hero-rule"></div>
-      <p>Interior &amp; Exterior · Résidentiel · Free Quotes · All Boroughs</p>
-      <div class="hero-buttons">
-        <a href="#quote" class="btn-primary">Get a Free Quote</a>
-        <a href="#gallery" class="btn-secondary">See Our Work</a>
+    <section class="trust-bar">
+      <div class="trust-item reveal">
+        <h3>1-Year Workmanship Warranty</h3>
+        <p>
+          We stand behind our prep and finish quality after the job is done.
+        </p>
       </div>
-    </div>
-  </section>
+      <div class="trust-item reveal">
+        <h3>Fully Insured Team</h3>
+        <p>Insurance documentation is available before project start.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Satisfaction Walkthrough</h3>
+        <p>
+          We do a final checklist with you before we consider a job complete.
+        </p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Quotes in Under 2 Business Hours</h3>
+        <p>
+          Call, text, or submit online and we respond quickly with next steps.
+        </p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Bilingual Service</h3>
+        <p>English and French communication from quote to final walkthrough.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>RBQ Transparency</h3>
+        <p>
+          If your project scope requires licensing, compliance details are
+          provided in writing.
+        </p>
+      </div>
+    </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <span class="section-eyebrow reveal">Our Services</span>
-    <h2 class="reveal">What We Do</h2>
-    <div class="section-rule reveal"></div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <span>🖌️</span>
-        <span class="service-num">01</span>
-        <h3>Interior Painting</h3>
-        <p>Walls, ceilings, trim and mouldings — clean edges, no mess left behind.</p>
+    <section class="founder" id="story">
+      <div class="founder-image reveal-left">
+        <img
+          src="/static/images/the-crew.webp"
+          alt="JG Paints student team in Montreal"
+        />
       </div>
-      <div class="service-card reveal">
-        <span>🏠</span>
-        <span class="service-num">02</span>
-        <h3>Exterior Painting</h3>
-        <p>Weather-resistant finishes that protect and transform your home's exterior.</p>
+      <div class="founder-copy reveal-right">
+        <span class="section-eyebrow">Why Homeowners Choose Us</span>
+        <h2>A Real Student Company, Not a Summer Side Gig</h2>
+        <p>
+          JG Paints was built by students who wanted to fund tuition by doing
+          real work with real standards. We run small crews, stay owner-led on
+          every project, and focus on communication that bigger contractors
+          often skip.
+        </p>
+        <p>
+          Our clients tell us they like having motivated, respectful people on
+          their property. That trust is our edge, and we take it seriously on
+          every home.
+        </p>
+        <ul class="story-list">
+          <li>Owner-led crews with direct communication</li>
+          <li>Professional prep, clean masking, and tidy worksites</li>
+          <li>Detailed project updates so you are never guessing</li>
+        </ul>
       </div>
-      <div class="service-card reveal">
-        <span>🔧</span>
-        <span class="service-num">03</span>
-        <h3>Surface Preparation</h3>
-        <p>Cracks, holes, and surface repairs included in every project.</p>
-      </div>
-      <div class="service-card reveal">
-        <span>🎨</span>
-        <span class="service-num">04</span>
-        <h3>Colour Consultation</h3>
-        <p>Not sure what colour? We help you choose — and we even built a device to match existing colours.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALLERY -->
-  <section class="gallery" id="gallery">
-    <span class="section-eyebrow reveal" style="color:var(--gold)">Our Work</span>
-    <h2 class="reveal" style="color:var(--warm-white)">Before &amp; After</h2>
-    <div class="section-rule reveal"></div>
-    <p class="section-sub reveal" style="color:rgba(255,255,255,0.4)">Every job tells a story</p>
-    <div class="gallery-grid">
-      <!-- BEFORE -->
-      <div class="gallery-item reveal-left">
-        <a href="/static/images/before1.webp" data-lightbox="job1" data-title="Before — Job 1">
-          <img src="/static/images/before1.webp" alt="Before painting">
-        </a>
-        <a href="/static/images/before2.webp" data-lightbox="job2" data-title="Before — Job 2">
-          <img src="/static/images/before2.webp" alt="Before painting">
-        </a>
-        <a href="/static/images/before3.webp" data-lightbox="job3" data-title="Before — Job 3">
-          <img src="/static/images/before3.webp" alt="Before painting">
-        </a>
-        <a href="/static/images/before4.webp" data-lightbox="job4" data-title="Before — Job 4">
-          <img src="/static/images/before4.webp" alt="Before painting">
-        </a>
-        <a href="/static/images/before5.webp" data-lightbox="job5" data-title="Before — Job 5">
-          <img src="/static/images/before5.webp" alt="Before painting">
-        </a>
-        <span class="tag">Before</span>
-      </div>
-
-      <!-- AFTER -->
-      <div class="gallery-item reveal-right">
-        <a href="/static/images/after1.webp" data-lightbox="job1" data-title="After — Job 1">
-          <img src="/static/images/after1.webp" alt="After painting">
-        </a>
-        <a href="/static/images/after2.webp" data-lightbox="job2" data-title="After — Job 2">
-          <img src="/static/images/after2.webp" alt="After painting">
-        </a>
-        <a href="/static/images/after3.webp" data-lightbox="job3" data-title="After — Job 3">
-          <img src="/static/images/after3.webp" alt="After painting">
-        </a>
-        <a href="/static/images/after4.webp" data-lightbox="job4" data-title="After — Job 4">
-          <img src="/static/images/after4.webp" alt="After painting">
-        </a>
-        <a href="/static/images/after5.webp" data-lightbox="job5" data-title="After — Job 5">
-          <img src="/static/images/after5.webp" alt="After painting">
-        </a>
-
-        <span class="tag after">After</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="why">
-    <div class="why-inner">
-      <span class="section-eyebrow reveal" style="color:var(--gold)">Why Choose Us</span>
-      <h2 class="reveal">Why JG Paints?</h2>
+    <section class="services" id="services">
+      <span class="section-eyebrow reveal">Services</span>
+      <h2 class="reveal">Residential Painting for Busy Montreal Homeowners</h2>
       <div class="section-rule reveal"></div>
-      <p class="section-sub reveal" style="color:rgba(255,255,255,0.4)">We show up. We deliver. Every time.</p>
-      <div class="why-grid">
-        <div class="why-item reveal">✅ Show up on time, every time</div>
-        <div class="why-item reveal">✅ Free detailed quotes</div>
-        <div class="why-item reveal">✅ Bilingual team · Équipe bilingue</div>
-        <div class="why-item reveal">✅ Serving all Montreal boroughs</div>
-        <div class="why-item reveal">✅ Colour matching technology</div>
-        <div class="why-item reveal">✅ Clean worksite guaranteed</div>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <span class="service-num">01</span>
+          <h3>Interior Painting</h3>
+          <p>
+            Walls, ceilings, trim, and doors with sharp lines and a clean
+            finish.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-num">02</span>
+          <h3>Exterior Painting</h3>
+          <p>
+            Durable systems for siding, fascia, and high-visibility curb appeal.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-num">03</span>
+          <h3>Decks and Railings</h3>
+          <p>
+            Prep, staining, and sealing that protects wood through Montreal
+            weather.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-num">04</span>
+          <h3>Cabinets and Detailed Surfaces</h3>
+          <p>
+            Careful prep and smooth sprayed or rolled finishes for high-touch
+            spaces.
+          </p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GOOGLE REVIEWS -->
-  <script src="https://elfsightcdn.com/platform.js" async></script>
-  <div class="elfsight-app-263e3154-fc32-45f2-ad5e-c81cbe269b3d" data-elfsight-app-lazy></div>
-
-  <!-- TEAM PHOTO + CONTACT — fixed layout -->
-  <div class="contact-section" id="contact">
-    <img src="/static/images/the-crew.webp"
-         alt="JG Paints Team" class="quote-photo reveal">
-    <div class="quote-contact reveal">
-      <h2>Ready to Transform Your Home?</h2>
-      <p>Call or text us directly — we respond fast.</p>
-      <a href="tel:+14388649123" class="phone-btn">📞 438-864-9123</a>
-    </div>
-  </div>
-
-  <!-- QUOTE FORM — fixed id so nav button works -->
-  <div class="quote-form-section" id="quote">
-    <span class="section-eyebrow reveal">Get in Touch</span>
-    <h2 class="reveal">Request a Free Quote</h2>
-    <div class="section-rule reveal"></div>
-    <p class="section-sub reveal">We'll get back to you within 24 hours · On vous répond dans 24h</p>
-
-    <form id="quoteForm">
-      <input type="text"  name="name"    placeholder="Your name / Votre nom" required>
-      <input type="tel"   name="phone"   placeholder="Phone number / Téléphone" required>
-      <input type="email" name="email"   placeholder="Email address / Adresse courriel">
-      <input type="text"  name="area"    placeholder="Borough or address / Quartier ou adresse">
-      <textarea           name="message" placeholder="Tell us about your project / Décrivez votre projet" rows="4"></textarea>
-      <button type="submit">Send Request · Envoyer</button>
-    </form>
-
-    <div id="success" style="display:none; max-width:560px; margin:20px auto 0;">
-      ✅ Message received! We'll call you within 24hrs. / On vous rappelle dans 24h.
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">JG Paints ENR.</div>
-      <div class="footer-links">
-        <a href="https://instagram.com/jgpaintsmtl">Instagram</a>
-        <a href="tel:4388649123">438-864-9123</a>
+    <section class="pricing" id="pricing">
+      <span class="section-eyebrow reveal">Pricing Signals</span>
+      <h2 class="reveal">Clear Ranges Before We Ever Walk In</h2>
+      <div class="section-rule reveal"></div>
+      <p class="section-sub reveal">
+        Student-priced, fully scoped. Final quotes are confirmed after a
+        walkthrough.
+      </p>
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <h3>Interior Room Refresh</h3>
+          <p class="price-value">Starting at $350 / room</p>
+          <p>Ideal for standard bedrooms and offices with minor prep needs.</p>
+        </article>
+        <article class="price-card reveal">
+          <h3>Typical 3-Bedroom Interior</h3>
+          <p class="price-value">$2299.99 - $4,200</p>
+          <p>
+            Includes prep, patching, and complete finish across major living
+            areas.
+          </p>
+        </article>
+        <article class="price-card reveal">
+          <h3>Deck and Rail Staining</h3>
+          <p class="price-value">Starting at $850</p>
+          <p>
+            Based on deck size, rail detail, sanding needs, and product system.
+          </p>
+        </article>
       </div>
-      <div class="footer-copy">© 2026 JG Paints · Montreal, QC · All rights reserved</div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <section class="gallery" id="gallery">
+      <span class="section-eyebrow reveal">Before and After</span>
+      <h2 class="reveal">Each Pair Is the Same Job</h2>
+      <div class="section-rule reveal"></div>
+      <div class="gallery-pairs">
+        <article class="pair reveal">
+          <div class="pair-images">
+            <a
+              href="/static/images/before1.webp"
+              data-lightbox="job1"
+              data-title="Before - Job 1"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/before1.webp"
+                alt="Before painting for Job 1"
+              />
+              <span class="pair-tag">Before</span>
+            </a>
+            <a
+              href="/static/images/after1.webp"
+              data-lightbox="job1"
+              data-title="After - Job 1"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/after1.webp"
+                alt="After painting for Job 1"
+              />
+              <span class="pair-tag after">After</span>
+            </a>
+          </div>
+        </article>
+        <article class="pair reveal">
+          <div class="pair-images">
+            <a
+              href="/static/images/before2.webp"
+              data-lightbox="job2"
+              data-title="Before - Job 2"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/before2.webp"
+                alt="Before painting for Job 2"
+              />
+              <span class="pair-tag">Before</span>
+            </a>
+            <a
+              href="/static/images/after2.webp"
+              data-lightbox="job2"
+              data-title="After - Job 2"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/after2.webp"
+                alt="After painting for Job 2"
+              />
+              <span class="pair-tag after">After</span>
+            </a>
+          </div>
+        </article>
+        <article class="pair reveal">
+          <div class="pair-images">
+            <a
+              href="/static/images/before3.webp"
+              data-lightbox="job3"
+              data-title="Before - Job 3"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/before3.webp"
+                alt="Before painting for Job 3"
+              />
+              <span class="pair-tag">Before</span>
+            </a>
+            <a
+              href="/static/images/after3.webp"
+              data-lightbox="job3"
+              data-title="After - Job 3"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/after3.webp"
+                alt="After painting for Job 3"
+              />
+              <span class="pair-tag after">After</span>
+            </a>
+          </div>
+        </article>
+        <article class="pair reveal">
+          <div class="pair-images">
+            <a
+              href="/static/images/before4.webp"
+              data-lightbox="job4"
+              data-title="Before - Job 4"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/before4.webp"
+                alt="Before painting for Job 4"
+              />
+              <span class="pair-tag">Before</span>
+            </a>
+            <a
+              href="/static/images/after4.webp"
+              data-lightbox="job4"
+              data-title="After - Job 4"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/after4.webp"
+                alt="After painting for Job 4"
+              />
+              <span class="pair-tag after">After</span>
+            </a>
+          </div>
+        </article>
+        <article class="pair reveal">
+          <div class="pair-images">
+            <a
+              href="/static/images/before5.webp"
+              data-lightbox="job5"
+              data-title="Before - Job 5"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/before5.webp"
+                alt="Before painting for Job 5"
+              />
+              <span class="pair-tag">Before</span>
+            </a>
+            <a
+              href="/static/images/after5.webp"
+              data-lightbox="job5"
+              data-title="After - Job 5"
+              class="pair-shot"
+            >
+              <img
+                src="/static/images/after5.webp"
+                alt="After painting for Job 5"
+              />
+              <span class="pair-tag after">After</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-</body>
+    <section class="testimonials" id="reviews">
+      <span class="section-eyebrow reveal">Client Feedback</span>
+      <h2 class="reveal">Named Reviews from Real Montreal Jobs</h2>
+      <div class="section-rule reveal"></div>
+      <p class="section-sub reveal">
+        We are a growing company and we collect every honest review after
+        project completion.
+      </p>
+      <div class="testimonial-grid">
+        <article class="testimonial-card reveal">
+          <img
+            src="/static/images/after1.webp"
+            alt="Completed painting project for Lilia R."
+          />
+          <p class="testimonial-quote">
+            "Young and professional. The team was respectful, worked clean, and
+            the finish came out exactly as promised."
+          </p>
+          <p class="testimonial-author">Lilia R. - Google Review</p>
+        </article>
+        <article class="testimonial-card reveal">
+          <img
+            src="/static/images/after3.webp"
+            alt="Completed painting project for Marc D."
+          />
+          <p class="testimonial-quote">
+            "We wanted to support students and are glad we did. Great
+            communication, fair pricing, and solid prep work."
+          </p>
+          <p class="testimonial-author">Marc D. - Google Review</p>
+        </article>
+        <article class="testimonial-card reveal">
+          <img
+            src="/static/images/after5.webp"
+            alt="Completed painting project for Sarah P."
+          />
+          <p class="testimonial-quote">
+            "They offered a warranty, showed up on schedule, and left the place
+            spotless after every day."
+          </p>
+          <p class="testimonial-author">Sarah P. - Google Review</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="review-widget">
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div
+        class="elfsight-app-263e3154-fc32-45f2-ad5e-c81cbe269b3d"
+        data-elfsight-app-lazy
+      ></div>
+    </section>
+
+    <section class="process" id="process">
+      <span class="section-eyebrow reveal">How It Works</span>
+      <h2 class="reveal">Simple Process, Zero Guesswork</h2>
+      <div class="section-rule reveal"></div>
+      <div class="process-grid">
+        <article class="process-step reveal">
+          <span>01</span>
+          <h3>Fast Response</h3>
+          <p>
+            We reply within 2 business hours to confirm service, timeline, and a
+            quote window.
+          </p>
+        </article>
+        <article class="process-step reveal">
+          <span>02</span>
+          <h3>Walkthrough and Scope</h3>
+          <p>
+            We inspect the site, identify prep needs, and provide a written
+            quote with ranges.
+          </p>
+        </article>
+        <article class="process-step reveal">
+          <span>03</span>
+          <h3>Prep and Paint</h3>
+          <p>
+            Protection, patching, sanding, and proper coats with daily cleanup
+            standards.
+          </p>
+        </article>
+        <article class="process-step reveal">
+          <span>04</span>
+          <h3>Final Walkthrough</h3>
+          <p>
+            Touch-ups completed on the spot, plus warranty and post-job care
+            instructions.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="care">
+      <span class="section-eyebrow reveal">Post-Job Care</span>
+      <h2 class="reveal">How to Keep the Finish Looking New</h2>
+      <div class="section-rule reveal"></div>
+      <div class="care-grid">
+        <article class="care-card reveal">
+          <h3>First 30 Days</h3>
+          <p>
+            Avoid aggressive cleaning while paint fully cures. Use soft
+            microfiber only.
+          </p>
+        </article>
+        <article class="care-card reveal">
+          <h3>Maintenance Cleaning</h3>
+          <p>
+            Use mild soap and warm water for marks. Skip abrasive pads and
+            strong solvents.
+          </p>
+        </article>
+        <article class="care-card reveal">
+          <h3>Quick Touch-Up Plan</h3>
+          <p>
+            Keep leftover labeled paint in a climate-safe spot for future quick
+            corrections.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <span class="section-eyebrow reveal">FAQ</span>
+      <h2 class="reveal">Answers Before You Book</h2>
+      <div class="section-rule reveal"></div>
+      <div class="faq-list reveal">
+        <details>
+          <summary>How quickly can you quote my project?</summary>
+          <p>
+            We respond in under 2 business hours and usually schedule
+            walkthroughs within 1 to 2 days.
+          </p>
+        </details>
+        <details>
+          <summary>Do you offer warranties?</summary>
+          <p>
+            Yes. We provide a 1-year workmanship warranty and complete a final
+            approval walkthrough with you.
+          </p>
+        </details>
+        <details>
+          <summary>Can you help me choose colors?</summary>
+          <p>
+            Absolutely. We provide practical color guidance and can match
+            existing tones using professional tools.
+          </p>
+        </details>
+        <details>
+          <summary>Are you insured?</summary>
+          <p>
+            Yes. We are fully insured and provide documentation before project
+            start when requested.
+          </p>
+        </details>
+        <details>
+          <summary>Do you work in French and English?</summary>
+          <p>
+            Yes. We are a bilingual team and provide service in either language
+            from start to finish.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="quote-form-section" id="quote">
+      <span class="section-eyebrow reveal">Request a Quote</span>
+      <h2 class="reveal">Tell Us About Your Project</h2>
+      <div class="section-rule reveal"></div>
+      <p class="section-sub reveal">
+        Qualified details help us price faster and keep your quote accurate.
+      </p>
+
+      <form id="quoteForm">
+        <div class="field-grid">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="tel" name="phone" placeholder="Phone number" required />
+          <input type="email" name="email" placeholder="Email address" />
+          <input
+            type="text"
+            name="area"
+            placeholder="Borough or address"
+            required
+          />
+          <select name="service_type" required>
+            <option value="">Service type</option>
+            <option value="Interior painting">Interior painting</option>
+            <option value="Exterior painting">Exterior painting</option>
+            <option value="Deck or rail staining">Deck or rail staining</option>
+            <option value="Cabinet repaint">Cabinet repaint</option>
+            <option value="Other">Other</option>
+          </select>
+          <select name="project_size" required>
+            <option value="">Project size</option>
+            <option value="One room">One room</option>
+            <option value="Two to four rooms">Two to four rooms</option>
+            <option value="Full floor">Full floor</option>
+            <option value="Full home">Full home</option>
+            <option value="Exterior surface">Exterior surface</option>
+          </select>
+          <select name="timeline" required>
+            <option value="">Preferred timeline</option>
+            <option value="ASAP">ASAP</option>
+            <option value="Within 2 weeks">Within 2 weeks</option>
+            <option value="Within 1 month">Within 1 month</option>
+            <option value="Flexible">Flexible</option>
+          </select>
+          <select name="budget" required>
+            <option value="">Budget range</option>
+            <option value="Under $1,000">Under $1,000</option>
+            <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+            <option value="$3,000 - $6,000">$3,000 - $6,000</option>
+            <option value="$6,000+">$6,000+</option>
+          </select>
+        </div>
+        <textarea
+          name="message"
+          placeholder="Tell us what you want painted and any access details"
+          rows="5"
+        ></textarea>
+        <input
+          type="text"
+          name="company"
+          class="honeypot"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+        <input type="hidden" name="form_loaded_at" id="formLoadedAt" />
+        <input type="hidden" name="locale" value="en" />
+        <button type="submit" data-sending="Sending request...">
+          Request My Quote
+        </button>
+      </form>
+
+      <div
+        id="success"
+        style="display: none; max-width: 760px; margin: 20px auto 0"
+      >
+        Request received. A team member will reach out within 2 business hours.
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">JG Paints ENR.</div>
+        <div class="footer-links">
+          <a href="https://instagram.com/jgpaintsmtl">Instagram</a>
+          <a href="tel:+14388649123">438-864-9123</a>
+          <a href="/fr">Version francaise</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 JG Paints ENR. | Montreal, QC</div>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  </body>
 </html>
