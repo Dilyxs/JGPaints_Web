@@ -127,7 +127,7 @@ def submit_quote():
 @app.route("/robots.txt")
 def robots():
     return (
-        "User-agent: *\nAllow: /\nSitemap: https://jgpaints.ca/sitemap.xml",
+        "User-agent: *\nAllow: /\nSitemap: https://abbottmaintenance.ca/sitemap.xml",
         200,
         {"Content-Type": "text/plain"},
     )
@@ -139,12 +139,12 @@ def sitemap():
         """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
   <url>
-    <loc>https://jgpaints.ca/</loc>
+    <loc>https://abbottmaintenance.ca/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jgpaints.ca/fr</loc>
+    <loc>https://abbottmaintenance.ca/fr</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
