@@ -33,7 +33,9 @@ body {
 .reveal-left,
 .reveal-right {
   opacity: 0;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal {
@@ -182,14 +184,23 @@ nav.scrolled {
   gap: 14px;
 }
 
+/* ==========================================
+   BUTTONS (Updated with Call Button Style)
+   ========================================== */
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-call {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.76rem;
   padding: 15px 28px;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  display: inline-block; /* Keeps elements properly aligned side-by-side */
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .btn-primary {
@@ -200,6 +211,19 @@ nav.scrolled {
 
 .btn-primary:hover {
   background: var(--orange-dark);
+  transform: translateY(-2px);
+}
+
+/* Dedicated styled Call Button rule */
+.btn-call {
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid var(--gold);
+}
+
+.btn-call:hover {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: var(--gold);
   transform: translateY(-2px);
 }
 
@@ -374,9 +398,22 @@ section h2 {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 18%, rgba(232, 114, 12, 0.22) 0%, rgba(232, 114, 12, 0) 40%),
-    radial-gradient(circle at 86% 84%, rgba(201, 168, 76, 0.22) 0%, rgba(201, 168, 76, 0) 42%),
-    linear-gradient(140deg, var(--blue-dark) 0%, var(--blue) 52%, var(--blue-dark) 100%);
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(232, 114, 12, 0.22) 0%,
+      rgba(232, 114, 12, 0) 40%
+    ),
+    radial-gradient(
+      circle at 86% 84%,
+      rgba(201, 168, 76, 0.22) 0%,
+      rgba(201, 168, 76, 0) 42%
+    ),
+    linear-gradient(
+      140deg,
+      var(--blue-dark) 0%,
+      var(--blue) 52%,
+      var(--blue-dark) 100%
+    );
 }
 
 .pricing .section-eyebrow {
@@ -405,11 +442,17 @@ section h2 {
 
 .price-card {
   position: relative;
-  background: linear-gradient(165deg, rgba(250, 248, 245, 0.96) 0%, rgba(245, 241, 235, 0.94) 100%);
+  background: linear-gradient(
+    165deg,
+    rgba(250, 248, 245, 0.96) 0%,
+    rgba(245, 241, 235, 0.94) 100%
+  );
   border: 1px solid rgba(201, 168, 76, 0.32);
   padding: 30px 28px;
   box-shadow: 0 14px 34px rgba(15, 30, 48, 0.2);
-  transition: transform 0.24s ease, box-shadow 0.24s ease;
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 .price-card::before {
@@ -788,6 +831,59 @@ footer {
 .footer-copy {
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.74rem;
+}
+
+/* Direct Call CTA above the input fields */
+.form-call-wrapper {
+  max-width: 920px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-call-wrapper p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--blue-dark);
+}
+
+.btn-form-call {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--orange-dark);
+  border: 1px solid var(--orange);
+  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn-form-call:hover {
+  background: var(--orange);
+  color: #ffffff;
+}
+
+/* Ensure responsiveness on small phone screens */
+@media (max-width: 768px) {
+  .form-call-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .btn-form-call {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 1024px) {

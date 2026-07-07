@@ -89,7 +89,7 @@ def submit_quote():
         "message": clean(request.form.get("message")),
     }
 
-    required = ["name", "phone", "area", "service_type", "project_size", "timeline", "budget"]
+    required = ["name", "phone", "service_type"]
     if any(not record[field] for field in required):
         return jsonify({"status": "invalid", "error": "missing required fields"}), 400
 
